@@ -1,0 +1,18 @@
+.tiles {
+    padding: 5px;
+    width: 250px;
+    height: 250px;
+    position: relative;
+    left: 40%;
+    top: 30%;
+}
+
+.tiles > .row {
+    height: 50px;
+    width: 100%;
+}
+
+.tiles > .row > .col {
+    height: 100%;
+    width: 50px;
+}

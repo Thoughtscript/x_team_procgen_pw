@@ -1,0 +1,21 @@
+.automata {
+    padding: 5px;
+    width: 250px;
+    height: 250px;
+    position: relative;
+    left: 40%;
+    top: 30%;
+}
+
+.automata > .row {
+    height: 50px;
+    width: 100%;
+}
+
+.automata > .row > .col {
+    height: 100%;
+    width: 50px;
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+}

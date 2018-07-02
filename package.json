@@ -1,0 +1,31 @@
+{
+  "name": "x_team_procgen_pw",
+  "version": "1.0.0",
+  "description": "X-Team Procedural Generation",
+  "scripts": {
+    "start": "node cluster.js",
+    "stop-win": "Taskkill /IM node.exe /F",
+    "stop-linux": "killall node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thoughtscript/x_team_procgen_pw.git"
+  },
+  "engines": {
+    "node": "=8.8.0"
+  },
+  "keywords": [
+    "Procedural",
+    "Generation"
+  ],
+  "author": "Adam I. Gerard",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "body-parser": "=1.18.2",
+    "cookie-parser": "=1.4.3",
+    "ejs": "=2.5.9",
+    "express": "=4.16.3",
+    "morgan": "=1.9.0"
+  }
+}
