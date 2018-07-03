@@ -8,6 +8,17 @@ X-Team Procedural Generation example.
 
 ![Snake](https://github.com/Thoughtscript/x_team_procgen_pw/blob/master/public/image/Snake.png)
 
+Fun, no?
+
+
+![Potion One](https://github.com/Thoughtscript/x_team_procgen_pw/blob/master/public/image/GeneratedOne.v2.png)
+
+![Potion Two](https://github.com/Thoughtscript/x_team_procgen_pw/blob/master/public/image/GeneratedTwo.v3.png)
+
+![ProcGen](https://github.com/Thoughtscript/x_team_procgen_pw/blob/master/public/image/ProcGen.png)
+
+![Tiles](https://github.com/Thoughtscript/x_team_procgen_pw/blob/master/public/image/Tiles.png)
+
 # Installation and Set Up
 
 Setup instructions:
