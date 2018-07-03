@@ -16,7 +16,7 @@ window.onload = function () {
   }
 
   /**
-   * Automata Mapping.
+   * Tile mapping.
    */
   var mappings = [
     '/image/grass.jpg',
