@@ -3,21 +3,8 @@
 X-Team Procedural Generation example.
 
 ![Potion](https://github.com/Thoughtscript/x_team_procgen_pw/blob/master/public/image/Potion2.png)
-
 ![Cat](https://github.com/Thoughtscript/x_team_procgen_pw/blob/master/public/image/Cat.png)
-
 ![Snake](https://github.com/Thoughtscript/x_team_procgen_pw/blob/master/public/image/Snake.png)
-
-Fun, no?
-
-
-![Potion One](https://github.com/Thoughtscript/x_team_procgen_pw/blob/master/public/image/GeneratedOne.v2.png)
-
-![Potion Two](https://github.com/Thoughtscript/x_team_procgen_pw/blob/master/public/image/GeneratedTwo.v3.png)
-
-![ProcGen](https://github.com/Thoughtscript/x_team_procgen_pw/blob/master/public/image/ProcGen.png)
-
-![Tiles](https://github.com/Thoughtscript/x_team_procgen_pw/blob/master/public/image/Tiles.png)
 
 # Installation and Set Up
 
@@ -33,6 +20,13 @@ Views:
     http://localhost:7777/tiles
     http://localhost:7777/automata
 ```
+
+# Simple Examples
+
+![Potion One](https://github.com/Thoughtscript/x_team_procgen_pw/blob/master/public/image/GeneratedOne.v2.png)
+![Potion Two](https://github.com/Thoughtscript/x_team_procgen_pw/blob/master/public/image/GeneratedTwo.v3.png)
+![ProcGen](https://github.com/Thoughtscript/x_team_procgen_pw/blob/master/public/image/ProcGen.png)
+![Tiles](https://github.com/Thoughtscript/x_team_procgen_pw/blob/master/public/image/Tiles.png)
 
 # Licensing
 
