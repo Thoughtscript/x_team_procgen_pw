@@ -4,7 +4,7 @@ window.onload = function () {
    * Init Elements.
    */
 
-  generate(5, 5, 'automata');
+  generate(5, 5, 'automata')
 
   /**
    * Automata Mapping.
@@ -23,36 +23,118 @@ window.onload = function () {
   /**
    * Automata.
    *
-   * @param - seed - e.g. 1102100101000001000000201
+   * @param seed - e.g. 1102100101000001000000201
    */
   var Automata = function (seed) {
-    get('automata', 0, 0).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(0))] + ")"
-    get('automata', 0, 1).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(1))] + ")"
-    get('automata', 0, 2).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(2))] + ")"
-    get('automata', 0, 3).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(3))] + ")"
-    get('automata', 0, 4).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(4))] + ")"
-    get('automata', 1, 0).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(5))] + ")"
-    get('automata', 1, 1).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(6))] + ")"
-    get('automata', 1, 2).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(7))] + ")"
-    get('automata', 1, 3).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(8))] + ")"
-    get('automata', 1, 4).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(9))] + ")"
-    get('automata', 2, 0).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(10))] + ")"
-    get('automata', 2, 1).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(11))] + ")"
-    get('automata', 2, 2).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(12))] + ")"
-    get('automata', 2, 3).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(13))] + ")"
-    get('automata', 2, 4).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(14))] + ")"
-    get('automata', 3, 0).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(15))] + ")"
-    get('automata', 3, 1).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(16))] + ")"
-    get('automata', 3, 2).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(17))] + ")"
-    get('automata', 3, 3).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(18))] + ")"
-    get('automata', 3, 4).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(19))] + ")"
-    get('automata', 4, 0).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(20))] + ")"
-    get('automata', 4, 1).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(21))] + ")"
-    get('automata', 4, 2).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(22))] + ")"
-    get('automata', 4, 3).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(23))] + ")"
-    get('automata', 4, 4).style.backgroundImage = "url(" + mappings[parseInt(seed.charAt(24))] + ")"
+    for (var i = 0, j = 0; i < 5 && j < 5;) {
+      get('automata', i, j).style.backgroundImage = 'url(' + mappings[parseInt(seed.charAt((i * 5 + j)))] + ')'
+      j++
+      if (j === 5) {
+        i++
+        j = 0
+      }
+    }
   }
 
-  Automata(create([8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8]));
+  Automata(create([8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8]))
 
+  var cat = 'url("' + mappings[3] + '")',
+    snake = 'url("' + mappings[5] + '")',
+    grass = 'url("' + mappings[0] + '")'
+
+  /**
+   * Cat logic helper.
+   */
+
+  var catHelper = function (r, c) {
+    var current = get('automata', r, c).style.backgroundImage
+
+    var innerHelper = function (rw, cl) {
+      if (current === grass) {
+        var cr = get('automata', rw, cl).style.backgroundImage
+        get('automata', r, c).style.backgroundImage = (cr === cat) ? cat : current
+        console.log('Cat made Cat from: Row-' + rw + ' Col-' + cl + ' at: Row-' + r + ' Col-' + c)
+      }
+    }
+
+    if (r > 0 && c > 0 && c < 4) {
+      innerHelper(r - 1, c - 1)
+      innerHelper(r - 1, c)
+      innerHelper(r - 1, c + 1)
+    }
+    if (c > 0 && c < 4) {
+      innerHelper(r, c - 1)
+      innerHelper(r, c + 1)
+    }
+    if (r > 0 && c > 0 && r < 4 && c < 4) {
+      innerHelper(r + 1, c - 1)
+      innerHelper(r + 1, c)
+      innerHelper(r + 1, c + 1)
+    }
+  }
+
+  /**
+   * Snake logic helper.
+   */
+
+  var snakeHelper = function (r, c) {
+    var current = get('automata', r, c).style.backgroundImage
+
+    var innerHelper = function (rw, cl) {
+      if (current === snake) {
+        var cr = get('automata', rw, cl).style.backgroundImage
+        get('automata', rw, cl).style.backgroundImage = (cr === cat) ? grass : cr
+        console.log('Snake ate Cat at: Row-' + rw + ' Col-' + cl + ' from: Row-' + r + ' Col-' + c)
+      }
+    }
+
+    if (r > 0 && c > 0 && c < 4) {
+      innerHelper(r - 1, c - 1)
+      innerHelper(r - 1, c)
+      innerHelper(r - 1, c + 1)
+    }
+    if (c > 0 && c < 4) {
+      innerHelper(r, c - 1)
+      innerHelper(r, c + 1)
+    }
+    if (r > 0 && c > 0 && r < 4 && c < 4) {
+      innerHelper(r + 1, c - 1)
+      innerHelper(r + 1, c)
+      innerHelper(r + 1, c + 1)
+    }
+  }
+
+  /**
+   * Game loop.
+   */
+
+  var gameLoop = function (cycles) {
+    var current = 0
+    do {
+
+      for (var i = 0, j = 0; i < 5 && j < 5;) {
+        snakeHelper(i, j)
+        j++
+        if (j === 5) {
+          i++
+          j = 0
+        }
+      }
+
+      for (var a = 0, b = 0; a < 5 && b < 5;) {
+        catHelper(a, b)
+        b++
+        if (b === 5) {
+          a++
+          b = 0
+        }
+      }
+
+      current++
+    } while (current < cycles)
+  }
+
+  setTimeout(function () {
+    gameLoop(1000)
+  }, 4000)
 }
